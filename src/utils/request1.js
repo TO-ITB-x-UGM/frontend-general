@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 
-const url = "http://localhost:8080/api/";
+const url = "https://tryout.techdev.my.id/api/";
 
 export const post = async (
   api,

@@ -2,7 +2,7 @@ import axios from "axios";
 import { getAccessToken } from "./auth";
 
 const AXIOS_CONFIGURATION = {
-    baseURL: "http://localhost:8080/api",
+    baseURL: "https://tryout.techdev.my.id/api/",
     timeout: 12000
 };
 

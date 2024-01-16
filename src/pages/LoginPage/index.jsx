@@ -4,13 +4,13 @@ import { useRef, useEffect } from "react";
 import Background from "../../components/AnimatedBackground";
 import Buttons from "../../components/NextButton";
 import { Link, useHistory } from "react-router-dom";
-import {
-  loginWithPassword,
-  setAccessToken,
-  setUserId,
-} from "../../api/service";
-// import Auth from "../../api/auth";
-// import { setAccessToken, setUserId } from "../../utils/auth";
+// import {
+//   loginWithPassword,
+//   setAccessToken,
+//   setUserId,
+// } from "../../api/service";
+import Auth from "../../api/auth";
+import { setAccessToken, setUserId } from "../../utils/auth";
 import Swal from "sweetalert2";
 import { AiFillEye, AiFillEyeInvisible, AiOutlineSearch } from "react-icons/ai";
 import axios from "axios";
@@ -52,7 +52,7 @@ const Login = () => {
   const LoginPass = (e) => {
     e.preventDefault();
     try {
-      loginWithPassword(email, password).then((result) => {
+      Auth.loginWithPassword(email, password).then((result) => {
         setAccessToken(result.data.data.access_token);
         setUserId(result.data.data);
         history.push("/dashboard");
