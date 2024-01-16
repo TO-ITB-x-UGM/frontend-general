@@ -1,0 +1,23 @@
+.footer-bawah {
+    background-color: rgba(211, 211, 211, 0.315);
+    width: 100%;
+    height: 10rem;
+}
+
+.container-logo-footer {
+    width: 2rem;
+    height: 2rem;
+    margin-left: 2rem;
+}
+
+.logo-footer {
+    max-width: 100%;
+    margin-top: 0.5rem;
+
+}
+
+.tulisan-footer {
+    padding-top: 1rem;
+    margin-left: 2rem;
+
+}

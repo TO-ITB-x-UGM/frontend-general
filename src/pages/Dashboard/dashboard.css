@@ -1,0 +1,310 @@
+.body{
+    margin: 5vw;
+}
+.whiteColor{
+    color: #fff!important;
+}
+
+@media only screen and (max-width: 1000px) {
+    .navButton, .navButton,::after {
+        margin-left: 13%;
+        margin-top: 10%;
+        width: 30vw;
+        height: 15vw;
+        font-size: 3vw;
+        font-family: 'Bebas Neue', cursive;
+        background: linear-gradient(45deg, transparent 5%, #fff 5%);
+        border: 0;
+        color: #fff;
+        letter-spacing: 3px;
+        line-height: 10px;
+        box-shadow: 6px 0px 0px #F8F005;
+        outline: transparent;
+        position: relative;
+    }
+}
+.navButton, .navButton,::after {
+    margin-left: 13%;
+    margin-top: 10%;
+    width: 15vw;
+    height: 6vw;
+    font-size: 2vw;
+    font-family: 'Bebas Neue', cursive;
+    background: linear-gradient(45deg, transparent 5%, var(--react-dark-blue) 5%);
+    border: 0;
+    color: #fff;
+    letter-spacing: 3px;
+    line-height: 10px;
+    box-shadow: 6px 0px 0px #F8F005;
+    outline: transparent;
+    position: relative;
+}
+
+.navButton::after {
+
+    --slice-0: inset(50% 50% 50% 50%);
+    --slice-1: inset(80% -6px 0 0);
+    --slice-2: inset(50% -6px 30% 0);
+    --slice-3: inset(10% -6px 85% 0);
+    --slice-4: inset(40% -6px 43% 0);
+    --slice-5: inset(80% -6px 5% 0);
+
+    content: 'Dashboard';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%,#ffe600 5%);
+    text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #00E6F6;
+    clip-path: var(--slice-0);
+}
+
+.navButton:hover::after {
+    animation: 1s glitch;
+    animation-timing-function: steps(2, end);
+}
+
+@keyframes glitch {
+    0% {
+        clip-path: var(--slice-1);
+        transform: translate(-20px, -10px);
+    }
+    10% {
+        clip-path: var(--slice-3);
+        transform: translate(10px, 10px);
+    }
+    20% {
+        clip-path: var(--slice-1);
+        transform: translate(-10px, 10px);
+    }
+    30% {
+        clip-path: var(--slice-3);
+        transform: translate(0px, 5px);
+    }
+    40% {
+        clip-path: var(--slice-2);
+        transform: translate(-5px, 0px);
+    }
+    50% {
+        clip-path: var(--slice-3);
+        transform: translate(5px, 0px);
+    }
+    60% {
+        clip-path: var(--slice-4);
+        transform: translate(5px, 10px);
+    }
+    70% {
+        clip-path: var(--slice-2);
+        transform: translate(-10px, 10px);
+    }
+    80% {
+        clip-path: var(--slice-5);
+        transform: translate(20px, -10px);
+    }
+    90% {
+        clip-path: var(--slice-1);
+        transform: translate(-10px, 0px);
+    }
+    100% {
+        clip-path: var(--slice-1);
+        transform: translate(0);
+    }
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.imgBx{
+    color: white;
+    position: relative;
+    size: 20rem;
+    left: 60%;
+}
+.contentBx{
+    margin-bottom: 10%;
+}
+.container{
+    position: relative;
+}
+
+.container .card{
+    position: relative;
+    width: 80vw;
+    height: 80vh;
+    background: #232323;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 10vh;
+}
+
+.container .card:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: blue;
+    clip-path: circle(150px at 80% 10%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card:hover:before{
+    clip-path: circle(300px at 70% -20%);
+}
+
+.container .card:after{
+    content: 'Nike';
+    position: absolute;
+    top: 30%;
+    left: -20%;
+    font-size: 12em;
+    font-weight: 800;
+    font-style: italic;
+    color: rgba(255,255,25,0.05)
+}
+
+.container .card .imgBx{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 0;
+    width: 100%;
+    height: 220px;
+    transition: 0.5s;
+}
+
+.container .card:hover .imgBx{
+    top: 0%;
+    transform: translateY(0%);
+
+}
+
+.container .card .imgBx img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-25deg);
+    width: 270px;
+}
+
+.container .card .contentBx{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 1s;
+    z-index: 10;
+}
+
+.container .card:hover .contentBx{
+    height: 210px;
+}
+
+.container .card .contentBx h2{
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+    margin-bottom: 0;
+}
+.container .card .contentBx .size{
+    margin-top: 20px;
+}
+.container .card .contentBx .size, .container .card .contentBx .color {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    transition: 0.5s;opacity: 0;
+    visibility: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.container .card:hover .contentBx .size{
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.5s;
+}
+
+.container .card:hover .contentBx .color{
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.6s;
+}
+
+.container .card .contentBx .size h3, .container .card .contentBx .color h3{
+    color: #fff;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 10px;
+}
+
+.container .card .contentBx .size span{
+    width: 26px;
+    height: 26px;
+    text-align: center;
+    line-height: 26px;
+    font-size: 14px;
+    display: inline-block;
+    color: #111;
+    background: #fff;
+    margin: 0 5px;
+    transition: 0.5s;
+    color: #111;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.container .card .contentBx .size span:hover{
+    background: #9bdc28;
+}
+
+.container .card .contentBx .color span{
+    width: 20px;
+    height: 20px;
+    background: #ff0;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.container .card .contentBx .color span:nth-child(2){
+    background: #9bdc28;
+}
+
+.container .card .contentBx .color span:nth-child(3){
+    background: #03a9f4;
+}
+
+.container .card .contentBx .color span:nth-child(4){
+    background: #e91e63;
+}
+
+.container .card .contentBx a{
+    display: inline-block;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 4px;
+    margin-top: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #111;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 0.5s;
+    margin-top: 0;
+}
+
+.container .card:hover .contentBx a{
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: 0.75s;
+
+}
+

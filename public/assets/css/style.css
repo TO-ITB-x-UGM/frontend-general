@@ -1,0 +1,75 @@
+.footer-txt{
+    text-align: center;
+    padding: 20px;
+    font-weight: 700;
+    font-family: Inter,sans-serif,Open Sans,Helvetica Neue,sans-serif;
+    --tw-text-opacity: 1;
+    color: rgba(153, 153, 153, var(--tw-text-opacity));
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    margin-bottom: 0;
+    margin-top: 1rem;
+}
+
+.container{
+    padding-top: 0;
+}
+.sponsor{
+    width: 16rem;
+    margin: 0 auto;
+}
+.logo-sponsor{
+    max-width: 100%;
+    position: relative
+}
+
+.slick-slide{
+    margin: 0 1rem;
+}
+.slick-slide img{
+    width: 100%;
+}
+.slick-slider{
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+}
+.slick-list{
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.slick-track{
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block
+}
+.slick-slide{
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+}
+.slick-slide img{
+    display: block;
+}
+.slick-initialized .slick-slide{
+    display: block;
+}
+.copy{
+    padding-top: 3rem;
+}
+
+.bawah{
+    padding-top: 4rem;
+    margin-bottom: 3rem;
+}
+
+.footer-bawah {
+    border-style: border-box;
+    border-width: 100%;
+}

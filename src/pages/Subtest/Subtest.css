@@ -1,0 +1,59 @@
+.Menu {
+  padding: 1em;
+  background-color: #fafafa;
+  min-height: 100vh;
+}
+
+.judul_menu {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+}
+.judul_menu h1 {
+  font-weight: bold;
+}
+.menu_list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.jenis {
+  display: inline-flex;
+  width: 100%;
+  font-weight: bold;
+}
+.jenis h4 {
+  border-bottom: 5px solid;
+  padding: 0.5em;
+  text-align: center;
+  width: 100%;
+  transition: 0.2s;
+}
+.jenis h4:hover {
+  cursor: pointer;
+}
+.submenu {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: left;
+  border-radius: 1.5em;
+  background-color: #fcfcfc;
+  color: var(--react-dark);
+  box-shadow: 5px 5px 25px #d0d0e0;
+  font-size: 1rem;
+  padding: 2em;
+  width: calc(50% - 2em);
+  margin: 1em;
+  transition: 0.2s;
+}
+
+.submenu:hover {
+  cursor: pointer;
+  background-color: var(--react-dark-blue);
+  box-shadow: 5px 5px 25px #1734e566;
+  color: white;
+}
+.submenu:hover p {
+  color: white;
+}

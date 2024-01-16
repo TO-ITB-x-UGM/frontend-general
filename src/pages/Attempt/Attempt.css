@@ -1,0 +1,331 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+
+:root {
+  --react-dark: #282c34;
+  --react-blue: #61dafb;
+  --react-dark-blue: #1734e5;
+  --react-white: #f6ebff;
+  --danger: #f26;
+  --succes: #4bd543;
+  --doubt: #c5ae00;
+}
+/* --------------------MAIN SECTION-------------------- */
+.Tryout_container {
+  background-color: var(--react-dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Open Sans";
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-size: calc(12px);
+  color: var(--react-white);
+  transition: 0.2s;
+}
+
+.main {
+  display: flex;
+  width: 100%;
+}
+
+p {
+  margin: 0;
+}
+
+/* --------------------MAIN SECTION-------------------- */
+
+/* --------------------NAVIGATION-------------------- */
+/* ----------WAKTU---------- */
+.waktu {
+  background-color: var(--react-white);
+  color: var(--react-dark);
+  padding: 0.5em 1em;
+  margin: 1em 0;
+  font-family: monospace;
+  font-weight: bold;
+  border-radius: 0.5em;
+}
+/* ----------WAKTU---------- */
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em 2em;
+  width: calc(30vw);
+  background-color: var(--react-dark-blue);
+  box-shadow: 5px 0 20px var(--react-dark-blue);
+}
+
+.nav-button {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.button-akhir {
+  border: transparent;
+  padding: 2em 1em;
+  margin: 2em 0;
+  width: 50%;
+  border-radius: 1em;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--react-white);
+  text-shadow: 0 0 2px #fff6;
+  background-color: var(--danger);
+  box-shadow: 1px 3px 10px #f16a;
+  transition: 0.2s;
+}
+
+.button-akhir:hover {
+  cursor: pointer;
+  background-color: #f36;
+}
+
+.button {
+  background-color: var(--react-white);
+  border: transparent;
+  color: var(--react-dark);
+  font-weight: 600;
+  margin: 10px;
+  width: 5em;
+  padding: 1em;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+.button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+/* ----------BUTTON BEHAVIOUR---------- */
+.active {
+  color: var(--react-white);
+  background-color: var(--react-dark);
+  box-shadow: 2px 2px 10px var(--react-dark);
+  transform: scale(1.2);
+  border: transparent;
+  transition: 0.2s;
+}
+.finish {
+  background-color: var(--succes);
+  color: #fff;
+}
+.doubt {
+  background-color: var(--doubt);
+  color: #fff;
+}
+/* ----------BUTTON BEHAVIOUR---------- */
+/* --------------------NAVIGATION-------------------- */
+
+/* --------------------SOAL-------------------- */
+.soal {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  width: calc(70vw);
+  padding: 2em;
+  background-color: #eee;
+}
+
+/* ----------JUDUL---------- */
+.judul {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--react-dark);
+}
+.judul .judul_to {
+  background-color: #ffe600;
+  border-radius: 0.5em;
+  height: 2em;
+  display: flex;
+  align-items: center;
+  padding: 0 0.4em;
+  color: var(--react-dark);
+}
+.judul h4 {
+  color: var(--react-white);
+  display: inline-flex;
+  align-items: center;
+  height: 2em;
+  border-radius: 0.5em;
+  background-color: var(--react-dark-blue);
+}
+.judul .judul_to_2 {
+  padding: 0 0.4em;
+}
+.judul img {
+  margin: 0 0.5em;
+  width: 50px;
+  height: 50px;
+}
+/* ----------JUDUL---------- */
+
+/* ----------NAV SOAL---------- */
+.nav_soal {
+  display: inline-flex;
+  align-items: center;
+  color: var(--react-dark);
+  font-weight: bold;
+  margin-bottom: 1em;
+  font-size: 1.5em;
+  gap: 20px;
+}
+.nav_soal h4::selection {
+  background-color: transparent;
+}
+.nav_soal h4 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.arrow {
+  color: var(--react-dark);
+  transition: 0.3s;
+}
+.arrow:hover {
+  color: var(--react-dark-blue);
+  cursor: pointer;
+}
+/* ----------NAV SOAL---------- */
+
+/* ----------PERTANYAAN---------- */
+.pertanyaan {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1.5em;
+  background-color: var(--react-white);
+  color: var(--react-dark);
+  box-shadow: 5px 5px 25px #d0d0e0;
+  font-size: 1rem;
+  margin: 2em 0;
+  width: calc(100%);
+  padding: 2em 4em 4em 4em;
+  transition: 0.2s;
+}
+/* ----------PERTANYAAN---------- */
+
+/* ----------JAWABAN---------- */
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+}
+.jawaban {
+  display: flex;
+  align-items: center;
+  border-radius: 1.5em;
+  background-color: var(--react-white);
+  color: var(--react-dark);
+  box-shadow: 5px 5px 25px #d0d0e0;
+  font-size: 1rem;
+  padding: 1.5em 1em;
+  min-width: 20em;
+  margin: 1em;
+  transition: 0.2s;
+}
+.jawaban p {
+  color: var(--react-dark);
+}
+.jawaban:hover {
+  cursor: pointer;
+  background-color: var(--react-dark-blue);
+  box-shadow: 5px 5px 25px #1734e566;
+  color: white;
+}
+.jawaban:hover p {
+  color: var(--react-white);
+}
+.answer {
+  background-color: var(--react-white);
+  color: var(--react-dark);
+}
+
+.jawaban-aktif {
+  background-color: var(--react-dark-blue);
+  box-shadow: 5px 5px 25px #1734e566;
+  color: var(--react-white);
+}
+.jawaban-aktif p {
+  color: var(--react-white);
+}
+/* .answer-aktif {
+  background-color: var(--react-white);
+  color: var(--react-dark);
+} */
+
+.jawaban .checkmark {
+  min-width: 3em;
+  width: 20%;
+  max-width: 4em;
+  display: flex;
+  justify-content: center;
+}
+.jawaban .checkmark .answer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2em;
+  height: 2em;
+  /* border: 2px solid var(--react-dark-blue); */
+  border-radius: 50%;
+  transition: 0.2s;
+}
+.jawaban p {
+  width: 90%;
+  margin-left: 1em;
+  text-align: left;
+}
+.jawaban input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+/* ----------JAWABAN---------- */
+/* --------------------SOAL-------------------- */
+
+/* --------------------RESPONSIVE-------------------- */
+@media screen and (max-width: 720px) {
+  .navigation {
+    width: 100vw;
+  }
+  .main {
+    flex-direction: column;
+  }
+  .soal {
+    width: calc(100vw - 2em);
+    padding: 1em;
+  }
+  .navigation {
+    width: calc(100vw - 2em);
+  }
+  .button-akhir {
+    width: 100%;
+  }
+  .pertanyaan {
+    width: calc(100% - 4em);
+    padding: 0 2em 1em 2em;
+  }
+  .jawaban {
+    /* min-width: 15em;
+    max-width: 100%; */
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 320px) {
+  .jawaban {
+    min-width: 0;
+    /* flex-direction: column; */
+    width: calc(100% - 4em);
+  }
+}
+/* --------------------RESPONSIVE-------------------- */

@@ -1,0 +1,58 @@
+:root {
+    --bg: #dcdde1;
+    --color-icon: #00000;
+    --social-icon1: #e4405f;
+}
+.ButtonNext{
+    position: absolute;
+    left: 3vw;
+    top: 40vh;
+}
+.arrowIcon{
+    padding: 1.35rem;
+    font-size: 3rem;
+}
+.icon-link {
+    display: inline-flex;
+    font-size: 1rem;
+    text-decoration: none;
+    color: var(--color-icon);
+    width: 4rem;
+    height: 4rem;
+    transition: .5s linear;
+    position: relative;
+    z-index: 1;
+    margin: auto
+}
+
+.icon-link:hover {
+    color: #fff;
+}
+
+.icon-link i {
+    margin: auto;
+}
+
+.icon-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 6rem;
+    height: 6rem;
+    background: #000;
+    border-radius: 50%;
+    z-index: -1;
+    transform: scale(0);
+    transition: 0.3s cubic-bezier(.95, .32, .37, 1.21);
+}
+
+.icon-link:hover::before {
+    transform: scale(1);
+}
+
+.icon-item a:hover:before {
+    background: var(--social-icon1);
+}

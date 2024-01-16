@@ -1,0 +1,55 @@
+.card-custom {
+  overflow: hidden;
+  min-height: 450px;
+  box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+}
+
+.card-custom-img {
+  height: 125px;
+  background-image:none;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-color: inherit;
+}
+
+/* First border-left-width setting is a fallback */
+
+
+.card-custom-avatar img {
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+  position: absolute;
+  top: 25px;
+  left: 1.25rem;
+  width: 100px;
+  height: 100px;
+}
+
+
+
+.card-footer {
+  background: inherit;
+  border-color: inherit;
+}
+
+.card-container {
+  max-width: 20rem;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  margin-top: 3rem;
+}
+
+.judul-webinar{
+  text-align: center;
+  padding: 20px;
+  font-weight: 700;
+  font-family: Inter,sans-serif,Open Sans,Helvetica Neue,sans-serif;
+  --tw-text-opacity: 1;
+  color: rgba(153, 153, 153, var(--tw-text-opacity));
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-bottom: 0;
+  margin-top: 1rem;
+}
