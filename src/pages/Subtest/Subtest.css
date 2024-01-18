@@ -64,6 +64,14 @@
   transition: 0.2s;
 }
 
+.submenu2:hover {
+  cursor: pointer;
+  box-shadow: 5px 5px 25px #1734e566;
+}
+.submenu2:hover p {
+  color: white;
+}
+
 .submenu:hover {
   cursor: pointer;
   background-color: var(--react-dark-blue);

@@ -11,7 +11,7 @@ export default function TryoutList() {
   const style = { fontSize: "3rem" };
   const [tryouts, setTryouts] = useState([]);
   const history = useHistory();
-  const [subtest, setSubtest] = useState([0, 0, 0, 0, 0, 0, 0]);
+  
 
   useEffect(() => {
     try {
@@ -19,7 +19,6 @@ export default function TryoutList() {
         console.log(result);
         if (result.data.ok) {
           setTryouts(result.data.data);
-          localStorage.setItem("subtest", JSON.stringify(subtest));
         } else {
           console.log(result.data);
           Swal.fire({

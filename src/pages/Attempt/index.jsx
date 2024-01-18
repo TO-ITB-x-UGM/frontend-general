@@ -80,7 +80,7 @@ function Attempt(props) {
         history.push(`/tryout/${tryoutId}`);
         let subTemp = sub;
         subTemp[subtestId - 2] = 1;
-        localStorage.setItem(JSON.stringify(subTemp));
+        localStorage.setItem('subtest',JSON.stringify(subTemp));
       });
     }
 
@@ -189,7 +189,7 @@ function Attempt(props) {
                 sub[subtestId - 2] = 1;
                 let subTemp = sub;
                 subTemp[subtestId - 2] = 1;
-                localStorage.setItem(JSON.stringify(subTemp));
+                localStorage.setItem('subtest', JSON.stringify(subTemp));
               });
             } else {
               console.log(result.data);

@@ -127,6 +127,7 @@ const Subtest = () => {
 
   return (
     <div className="Menu">
+      <Toaster/>
       <HeaderTo />
       <div className="judul_menu">
         <div

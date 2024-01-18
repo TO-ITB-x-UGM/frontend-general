@@ -25,6 +25,7 @@ const Login = () => {
   const [password, setPass] = useState("");
   const [showPassword, setShowPassword] = useState("password");
   const [icon, setIcon] = useState(<AiFillEyeInvisible></AiFillEyeInvisible>);
+  const [subtest, setSubtest] = useState([0, 0, 0, 0, 0, 0, 0]);
   const handleToggle = () => {
     if (showPassword === "password") {
       setIcon(<AiFillEye></AiFillEye>);
@@ -61,6 +62,7 @@ const Login = () => {
       if (result.data.ok) {
         setAccessToken(result.data.data.access_token);
         setUserId(result.data.data);
+        localStorage.setItem("subtest", JSON.stringify(subtest));
         history.push("/dashboard");
       } else {
         toast.error("kamu salah");
