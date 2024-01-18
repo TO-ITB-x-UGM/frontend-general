@@ -24,7 +24,7 @@ function TestAttempt() {
   const [nomer, setNomer] = useState(1);
   const [questions, setQuestions] = useState({});
   const [answers, setAnswers] = useState({
-    1: "",
+    1: "0",
     2: "",
     3: "",
     4: "",
@@ -56,7 +56,8 @@ function TestAttempt() {
     30: "",
   });
 
-  const [jawaban, setJawaban] = useState({});
+  const [jawaban, setJawaban] = useState({ 1: "0", 2: "156", 3: "", 4: "" });
+  const [subtest, setSubtest] = useState([1,2,3,4,5] );
 
   // const [waktu, setWaktu] = useState({
   //   menit: props.waktu,
@@ -195,7 +196,7 @@ function TestAttempt() {
                 type="text"
                 id="shortAnswer"
                 name="shortAnswer"
-                value={jawaban[nomer]}
+                value={jawaban[nomer] === "0"? "" : jawaban[nomer]}
                 onChange={(e) => jawabSoal(nomer, e.target.value)}
                 placeholder="Masukkan jawaban Anda..."
               />

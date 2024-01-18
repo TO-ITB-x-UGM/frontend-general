@@ -5,6 +5,8 @@ import "./Subtest.css";
 import { useHistory, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { setAnswerToken } from "../../utils/answer";
+import toast from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 const Subtest = () => {
   const history = useHistory();
@@ -13,6 +15,7 @@ const Subtest = () => {
   // const [remaining, setRemaining] = useState(0);
   const [bab, setBab] = useState("TPS");
   const [tryout, setTryout] = useState({});
+  const [sub, setSub] = useState(JSON.parse(localStorage.getItem("subtest")));
   const [subtests, setSubtests] = useState({ TPS: [], TKA: [] });
   // ----------STATE----------
   const [waktu, setWaktu] = useState(10);
@@ -86,7 +89,7 @@ const Subtest = () => {
             if (result.data.ok) {
               setAnswerToken(result.data.data.answer_token);
               history.push(
-                `/tryout/${tryoutId}/attempt/${result.data.data.subattempt_id}`
+                `/tryout/${tryoutId}/${subtestId}/attempt/${result.data.data.subattempt_id}`
               );
             } else {
               if (result.data.message === "Time expired") {
@@ -160,8 +163,18 @@ const Subtest = () => {
         {bab === "TPS"
           ? subtests.TPS.map((item, index) => (
               <div
-                onClick={(e) => handleSubtestStart(item.subtest_id)}
-                className="submenu"
+                onClick={(e) => {
+                  if (sub[item.subtest_id - 2] === 0) {
+                    handleSubtestStart(item.subtest_id);
+                  } else {
+                    toast.error(
+                      "Subtest ini telah kamu kerjakan! Pilih subtest lain"
+                    );
+                  }
+                }}
+                className={
+                  sub[item.subtest_id - 2] === 0 ? "submenu" : "submenu2"
+                }
                 key={index}
               >
                 <h4>{item.subtest_title}</h4>
@@ -172,8 +185,18 @@ const Subtest = () => {
             ))
           : subtests.TKA.map((item, index) => (
               <div
-                onClick={(e) => handleSubtestStart(item.subtest_id)}
-                className="submenu"
+                onClick={(e) => {
+                  if (sub[item.subtest_id - 2] === 0) {
+                    handleSubtestStart(item.subtest_id);
+                  } else {
+                    toast.error(
+                      "Subtest ini telah kamu kerjakan! Pilih subtest lain"
+                    );
+                  }
+                }}
+                className={
+                  sub[item.subtest_id - 2] === 0 ? "submenu" : "submenu2"
+                }
                 key={index}
               >
                 <h4>{item.subtest_title}</h4>

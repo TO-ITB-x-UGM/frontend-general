@@ -21,8 +21,8 @@ function App() {
             <Prolink path="/dashboard" component={Dashboard} />
             <Prolink path="/tryout" exact component={TryoutList} />
             <Prolink path="/tryout/:tryoutId" exact component={Subtest} />
-            <Prolink path="/tryout/:tryoutId/attempt/:attemptId" component={Attempt} />
-            <Prolink path="/test" component={TestAttempt} />
+            <Prolink path="/tryout/:tryoutId/:subtestId/attempt/:attemptId" component={Attempt} />
+            <Route path="/test" component={TestAttempt} />
           </Switch>
         </div>
       </HashRouter>

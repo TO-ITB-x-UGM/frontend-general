@@ -48,6 +48,22 @@
   transition: 0.2s;
 }
 
+.submenu2{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: left;
+  border-radius: 1.5em;
+  background-color: var(--react-dark-blue);
+  color: white;
+  box-shadow: 5px 5px 25px #d0d0e0;
+  font-size: 1rem;
+  padding: 2em;
+  width: calc(50% - 2em);
+  margin: 1em;
+  transition: 0.2s;
+}
+
 .submenu:hover {
   cursor: pointer;
   background-color: var(--react-dark-blue);

@@ -19,13 +19,14 @@ function Attempt(props) {
   const history = useHistory();
 
   const [isDoubt, setIsDoubt] = useState(false);
-  const { tryoutId, attemptId } = useParams();
+  const { tryoutId, subtestId, attemptId } = useParams();
   const [nomer, setNomer] = useState(1);
   const [nomerEks, setnomerId] = useState({
     awal: 1,
     akhir: 1,
   });
   const [jumlahsoal, setJumlahsoal] = useState(0);
+  const [sub, setSub] = useState(JSON.parse(localStorage.getItem("subtest")));
   // const [popup, setPopup] = useState({
   //     toggle: false,
   //     message: "",
@@ -77,6 +78,9 @@ function Attempt(props) {
         title: "Waktu Habis",
       }).then(() => {
         history.push(`/tryout/${tryoutId}`);
+        let subTemp = sub;
+        subTemp[subtestId - 2] = 1;
+        localStorage.setItem(JSON.stringify(subTemp));
       });
     }
 
@@ -182,6 +186,10 @@ function Attempt(props) {
                 text: "Pengerjaan berhasil diakhiri. Kamu akan dialihkan ke halaman subtes",
               }).then(() => {
                 history.push(`/tryout/${tryoutId}`);
+                sub[subtestId - 2] = 1;
+                let subTemp = sub;
+                subTemp[subtestId - 2] = 1;
+                localStorage.setItem(JSON.stringify(subTemp));
               });
             } else {
               console.log(result.data);
@@ -250,6 +258,8 @@ function Attempt(props) {
         { id: nom + parseInt(nomerEks.awal) - 1, selected_id: ansTmp },
       ];
       console.log(ans);
+      Tryout.putAnswer(ans);
+      setJawaban((prevState) => ({ ...prevState, [nomer]: jawab }));
     } else {
       let ans = [{ id: nom + parseInt(nomerEks.awal) - 1, selected_id: jawab }];
       console.log(ans);
@@ -443,7 +453,7 @@ function Attempt(props) {
                       type="text"
                       id="shortAnswer"
                       name="shortAnswer"
-                      value={jawaban[nomer]}
+                      value={jawaban[nomer] === "0" ? "" : jawaban[nomer]}
                       onChange={(e) => jawabSoal(nomer, e.target.value, 1)}
                       placeholder="Masukkan jawaban Anda..."
                     />
