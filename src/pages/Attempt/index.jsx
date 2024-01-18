@@ -77,7 +77,7 @@ function Attempt(props) {
         title: "Waktu Habis",
       }).then(() => {
         history.push(`/tryout/${tryoutId}`);
-        let subTemp = JSON.parse(localStorage.getItem("subtest"));
+        const subTemp = JSON.parse(localStorage.getItem("subtest"));
         console.log(subTemp);
         console.log(subtestId);
         subTemp[subtestId - 2] = 1;
@@ -187,7 +187,7 @@ function Attempt(props) {
                 text: "Pengerjaan berhasil diakhiri. Kamu akan dialihkan ke halaman subtes",
               }).then(() => {
                 history.push(`/tryout/${tryoutId}`);
-                let subTemp = JSON.parse(localStorage.getItem("subtest"));
+                const subTemp = JSON.parse(localStorage.getItem("subtest"));
                 console.log(subTemp);
                 console.log(subtestId);
                 subTemp[subtestId - 2] = 1;
