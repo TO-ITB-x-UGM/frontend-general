@@ -26,7 +26,6 @@ function Attempt(props) {
     akhir: 1,
   });
   const [jumlahsoal, setJumlahsoal] = useState(0);
-  const [sub, setSub] = useState(JSON.parse(localStorage.getItem("subtest")));
   // const [popup, setPopup] = useState({
   //     toggle: false,
   //     message: "",
@@ -78,9 +77,11 @@ function Attempt(props) {
         title: "Waktu Habis",
       }).then(() => {
         history.push(`/tryout/${tryoutId}`);
-        let subTemp = sub;
+        let subTemp = JSON.parse(localStorage.getItem("subtest"));
+        console.log(subTemp);
+        console.log(subtestId);
         subTemp[subtestId - 2] = 1;
-        localStorage.setItem('subtest',JSON.stringify(subTemp));
+        localStorage.setItem("subtest", JSON.stringify(subTemp));
       });
     }
 
@@ -186,10 +187,11 @@ function Attempt(props) {
                 text: "Pengerjaan berhasil diakhiri. Kamu akan dialihkan ke halaman subtes",
               }).then(() => {
                 history.push(`/tryout/${tryoutId}`);
-                sub[subtestId - 2] = 1;
-                let subTemp = sub;
+                let subTemp = JSON.parse(localStorage.getItem("subtest"));
+                console.log(subTemp);
+                console.log(subtestId);
                 subTemp[subtestId - 2] = 1;
-                localStorage.setItem('subtest', JSON.stringify(subTemp));
+                localStorage.setItem("subtest", JSON.stringify(subTemp));
               });
             } else {
               console.log(result.data);
