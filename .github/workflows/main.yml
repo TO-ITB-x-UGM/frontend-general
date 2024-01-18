@@ -31,6 +31,7 @@ jobs:
         ssh -o StrictHostKeyChecking=no ${{ vars.USER_VPS }}@${{ vars.IP_VPS }} << 'EOF'
           cd ${{ vars.DIR }}
           git pull origin master
+          export PATH=$PATH:/home/deployer/.nvm/versions/node/v21.0.0/bin
           echo $PATH
           node -v
           npm i
