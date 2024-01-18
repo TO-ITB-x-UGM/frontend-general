@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./Attempt.css";
-import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from "react-icons/bs";
+import {
+  BsFillArrowLeftCircleFill,
+  BsFillArrowRightCircleFill,
+} from "react-icons/bs";
 import { IconContext } from "react-icons";
 import Popup from "../../components/Popup";
 import Tryout from "../../api/tryout";
@@ -9,7 +12,7 @@ import { setAnswerToken } from "../../utils/answer";
 // import LogoITB from "./Assets/logo_itb.png";
 // import LogoUI from "./Assets/logo_ui.png";
 
-function Attempt() {
+function TestAttempt() {
   const { tryoutId, attemptId } = useParams();
   const [popup, setPopup] = useState({
     toggle: false,
@@ -21,8 +24,36 @@ function Attempt() {
   const [nomer, setNomer] = useState(1);
   const [questions, setQuestions] = useState({});
   const [answers, setAnswers] = useState({
-    1: { qid: 4, selected: 1 },
-    2: { qid: 7, selected: 2 }
+    1: "",
+    2: "",
+    3: "",
+    4: "",
+    5: "",
+    6: "",
+    7: "",
+    8: "",
+    9: "",
+    10: "",
+    11: "",
+    12: "",
+    13: "",
+    14: "",
+    15: "",
+    16: "",
+    17: "",
+    18: "",
+    19: "",
+    20: "",
+    21: "",
+    22: "",
+    23: "",
+    24: "",
+    25: "",
+    26: "",
+    27: "",
+    28: "",
+    29: "",
+    30: "",
   });
 
   const [jawaban, setJawaban] = useState({});
@@ -33,23 +64,23 @@ function Attempt() {
   // });
   // ----------FUNCTION---------
 
-  useEffect(() => {
-    Tryout.getSubattempt(attemptId).then((result) => {
-      if (result.data.ok) {
-        setAnswerToken(result.data.data.answer_token);
-        setAnswers(result.data.data.answers);
-        console.log(result.data.data.answers);
-        setQuestions(result.data.data.questions);
-      }
-      console.log(result);
-    });
-  }, []);
+  // useEffect(() => {
+  //   Tryout.getSubattempt(attemptId).then((result) => {
+  //     if (result.data.ok) {
+  //       setAnswerToken(result.data.data.answer_token);
+  //       setAnswers(result.data.data.answers);
+  //       console.log(result.data.data.answers);
+  //       setQuestions(result.data.data.questions);
+  //     }
+  //     console.log(result);
+  //   });
+  // }, []);
 
   useEffect(() => {
     console.log("PUT ANSWER TO SERVER");
     console.log(answers);
     // Tryout.putAnswer({49: 1, });
-  }, [nomer])
+  }, [nomer]);
 
   const num = [];
 
@@ -91,6 +122,7 @@ function Attempt() {
     // console.log(nom);
     // console.log(jawab);
     setJawaban((prevState) => ({ ...prevState, [nomer]: jawab }));
+    console.log(jawaban);
   };
 
   // ----------FUNCTION---------
@@ -157,7 +189,18 @@ function Attempt() {
             </p>
           </div>
           <form className="form">
-            <label htmlFor="A">
+            <div className="jawaban-isian">
+              Jawaban:
+              <input
+                type="text"
+                id="shortAnswer"
+                name="shortAnswer"
+                value={jawaban[nomer]}
+                onChange={(e) => jawabSoal(nomer, e.target.value)}
+                placeholder="Masukkan jawaban Anda..."
+              />
+            </div>
+            {/* <label htmlFor="A">
               <div
                 className={
                   jawaban[nomer] === "A" ? "jawaban jawaban-aktif" : "jawaban"
@@ -176,8 +219,8 @@ function Attempt() {
                 </span>
                 <p>Jawaban A</p>
               </div>
-            </label>
-            <label htmlFor="B">
+            </label> */}
+            {/* <label htmlFor="B">
               <div
                 className={
                   jawaban[nomer] === "B" ? "jawaban jawaban-aktif" : "jawaban"
@@ -256,7 +299,7 @@ function Attempt() {
                 </span>
                 <p>Jawaban E</p>
               </div>
-            </label>
+            </label> */}
           </form>
           <div className="nav_soal">
             <IconContext.Provider value={{ size: 30 }}>
@@ -289,7 +332,10 @@ function Attempt() {
           </div> */}
           <div className="nav-button">
             {num.map((item, index) => {
-              let nav = (jawaban[item] !== false) ? `${item}. ${jawaban[item]}` : `${item}. -`;
+              let nav =
+                jawaban[item] !== false
+                  ? `${item}. ${jawaban[item]}`
+                  : `${item}. -`;
               let btn = "";
               if (item === nomer) {
                 btn = "button active";
@@ -326,10 +372,10 @@ function Attempt() {
       {/* ----------POPUP AKHIR---------- */}
     </div>
   );
-};
+}
 
 // Attempt.defaultProps = {
 //   soal: 30,
 //   waktu: 18,
 // };
-export default Attempt;
+export default TestAttempt;

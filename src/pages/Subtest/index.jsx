@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import HeaderTo from "../../components/HeaderTo";
 import Tryout from "../../api/tryout";
@@ -14,20 +13,20 @@ const Subtest = () => {
   // const [remaining, setRemaining] = useState(0);
   const [bab, setBab] = useState("TPS");
   const [tryout, setTryout] = useState({});
-  const [subtests, setSubtests] = useState({ TPS: [], TKA: [], });
+  const [subtests, setSubtests] = useState({ TPS: [], TKA: [] });
   // ----------STATE----------
   const [waktu, setWaktu] = useState(10);
   useEffect(() => {
     // exit early when we reach 0
     if (waktu <= 0) {
       Swal.fire({
-        icon: 'info',
-        text: 'Waktu pengerjaan telah habis',
-        title: 'Waktu Habis'
+        icon: "info",
+        text: "Waktu pengerjaan telah habis",
+        title: "Waktu Habis",
       }).then(() => {
         history.push(`/dashboard`);
-      })
-    };
+      });
+    }
 
     // save intervalId to clear the interval when the
     // component re-renders
@@ -42,13 +41,13 @@ const Subtest = () => {
   }, [waktu]);
   // -------- API ------------
   useEffect(() => {
-    Tryout.getAttempt(localStorage.getItem('attempt_id')).then((result) => {
+    Tryout.getAttempt(localStorage.getItem("attempt_id")).then((result) => {
       // console.log(result);
       if (result.data.ok) {
         setTryout(result.data.data.exam);
         setSubtests({
           TPS: result.data.data.subattempts.tps,
-          TKA: result.data.data.subattempts.tka
+          TKA: result.data.data.subattempts.tka,
         });
         setWaktu(result.data.data.time_remaining);
       }
@@ -64,8 +63,6 @@ const Subtest = () => {
   }, []);
   // -------- API ------------
 
-
-
   // ----------FUNCTION----------
   const handleMenu = (bab) => {
     setBab(bab);
@@ -74,35 +71,45 @@ const Subtest = () => {
   const handleSubtestStart = (subtestId) => {
     try {
       Swal.fire({
-        icon: 'question',
-        title: 'Apakah kamu yakin?',
-        text: 'Kamu tidak dapat mengulangi pengerjaan subtes setelah kamu memulai',
+        icon: "question",
+        title: "Apakah kamu yakin?",
+        text: "Kamu tidak dapat mengulangi pengerjaan subtes setelah kamu memulai",
         confirmButtonText: "Yakin",
         showCancelButton: true,
-        cancelButtonText: "Batal"
+        cancelButtonText: "Batal",
       }).then((res) => {
         if (res.isConfirmed) {
-          Tryout.startSubattempt(subtestId, localStorage.getItem('attempt_id')).then((result) => {
+          Tryout.startSubattempt(
+            subtestId,
+            localStorage.getItem("attempt_id")
+          ).then((result) => {
             if (result.data.ok) {
               setAnswerToken(result.data.data.answer_token);
-              history.push(`/tryout/${tryoutId}/attempt/${result.data.data.subattempt_id}`);
+              history.push(
+                `/tryout/${tryoutId}/attempt/${result.data.data.subattempt_id}`
+              );
             } else {
               if (result.data.message === "Time expired") {
+                console.log(result.data.message);
                 Swal.fire({
                   icon: "error",
                   title: "Oops...",
-                  text: "Waktu kamu untuk pengerjaan subtest tersebut sudah habis"
-                })
+                  text: "Waktu kamu untuk pengerjaan subtest tersebut sudah habis",
+                });
               }
             }
           });
         }
-      })
+      });
     } catch (error) {
       console.log(error.data);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Kamu sudah menyelesaikan subtest ini.",
+      });
     }
-  }
-
+  };
 
   //   useEffect(() => {
   //     let jam = waktu / 60;
@@ -123,7 +130,10 @@ const Subtest = () => {
           style={{ display: "inline-flex", justifyContent: "space-between" }}
         >
           <h1>{tryout.title}</h1>
-          <h4>Sisa Waktu {Math.floor(waktu / 3600)} : {Math.floor((waktu % 3600) / 60)} : {waktu % 60}</h4>
+          <h4>
+            Sisa Waktu {Math.floor(waktu / 3600)} :{" "}
+            {Math.floor((waktu % 3600) / 60)} : {waktu % 60}
+          </h4>
         </div>
         <div className="jenis">
           <h4
@@ -149,17 +159,29 @@ const Subtest = () => {
       <div className="menu_list">
         {bab === "TPS"
           ? subtests.TPS.map((item, index) => (
-            <div onClick={(e) => handleSubtestStart(item.subtest_id)} className="submenu" key={index}>
-              <h4>{item.subtest_title}</h4>
-              <p>Durasi: <b>{item.subtest_duration / 60}</b> menit</p>
-            </div>
-          ))
+              <div
+                onClick={(e) => handleSubtestStart(item.subtest_id)}
+                className="submenu"
+                key={index}
+              >
+                <h4>{item.subtest_title}</h4>
+                <p>
+                  Durasi: <b>{item.subtest_duration / 60}</b> menit
+                </p>
+              </div>
+            ))
           : subtests.TKA.map((item, index) => (
-            <div onClick={(e) => handleSubtestStart(item.subtest_id)} className="submenu" key={index}>
-              <h4>{item.subtest_title}</h4>
-              <p>Durasi: <b>{item.subtest_duration / 60}</b> menit</p>
-            </div>
-          ))}
+              <div
+                onClick={(e) => handleSubtestStart(item.subtest_id)}
+                className="submenu"
+                key={index}
+              >
+                <h4>{item.subtest_title}</h4>
+                <p>
+                  Durasi: <b>{item.subtest_duration / 60}</b> menit
+                </p>
+              </div>
+            ))}
       </div>
     </div>
   );

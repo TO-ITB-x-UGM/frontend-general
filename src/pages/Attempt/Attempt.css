@@ -234,6 +234,42 @@ p {
 .jawaban p {
   color: var(--react-dark);
 }
+.jawaban-isian{
+  display: flex;
+  align-items: center;
+  border-radius: 1.5em;
+  background-color: var(--react-white);
+  color: var(--react-dark);
+  box-shadow: 5px 5px 25px #d0d0e0;
+  font-size: 1rem;
+  padding: 1.5em 1em;
+  width: 100%;
+  margin: 1em;
+  transition: 0.2s;
+}
+.jawaban-isian input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 14px;
+  color: #555;
+  margin-left: 10px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.jawaban-isian input:focus {
+  outline: none;
+  border-color: #3498db; /* Change this color to your desired focus color */
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* Change this color to your desired focus shadow */
+}
+
+/* Customize the placeholder text */
+.jawaban-isian input::placeholder {
+  color: #aaa;
+}
+
 .jawaban:hover {
   cursor: pointer;
   background-color: var(--react-dark-blue);
