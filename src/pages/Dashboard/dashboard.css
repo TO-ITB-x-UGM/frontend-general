@@ -18,7 +18,7 @@
         color: #fff;
         letter-spacing: 3px;
         line-height: 10px;
-        box-shadow: 6px 0px 0px #F8F005;
+        box-shadow: 6px 0px 0px #C28321;
         outline: transparent;
         position: relative;
     }
@@ -35,7 +35,7 @@
     color: #fff;
     letter-spacing: 3px;
     line-height: 10px;
-    box-shadow: 6px 0px 0px #F8F005;
+    box-shadow: 6px 0px 0px #C28321;
     outline: transparent;
     position: relative;
 }
@@ -56,8 +56,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%,#ffe600 5%);
-    text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #00E6F6;
+    background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%,#C28321 5%);
+    text-shadow: -3px -3px 0px #C28321, 3px 3px 0px #00E6F6;
     clip-path: var(--slice-0);
 }
 
@@ -262,20 +262,20 @@
 }
 
 .container .card .contentBx .size span:hover{
-    background: #9bdc28;
+    background: #C28321;
 }
 
 .container .card .contentBx .color span{
     width: 20px;
     height: 20px;
-    background: #ff0;
+    background: #C28321;
     border-radius: 50%;
     margin: 0 5px;
     cursor: pointer;
 }
 
 .container .card .contentBx .color span:nth-child(2){
-    background: #9bdc28;
+    background: #C28321;
 }
 
 .container .card .contentBx .color span:nth-child(3){

@@ -12,13 +12,13 @@ const headerConfiguration = config => {
     return configuration;
 }
 
-const errorResponseHandling = error => {
-    console.error({ ...error });
-}
+// const errorResponseHandling = error => {
+//     console.error({ ...error });
+// }
 
-const errorRequestHandling = error => {
-    console.error(error); // for debug
-};
+// const errorRequestHandling = error => {
+//     console.error(error); // for debug
+// };
 
 const service = axios.create(AXIOS_CONFIGURATION);
 
@@ -28,21 +28,21 @@ service.interceptors.request.use(
             return headerConfiguration(config);
         }
         return config;
-    },
-    error => {
-        errorRequestHandling(error);
-        return Promise.reject(error);
     }
+    // error => {
+    //     // errorRequestHandling(error);
+    //     return Promise.reject(error);
+    // }
 );
 
 service.interceptors.response.use(
     response => {
         return response;
-    },
-    error => {
-        errorResponseHandling(error);
-        return Promise.reject(error);
     }
+    // error => {
+    //     // errorResponseHandling(error);
+    //     return Promise.reject(error);
+    // }
 );
 
 export default service;

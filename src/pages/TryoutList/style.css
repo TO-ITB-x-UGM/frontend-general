@@ -33,7 +33,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: yellow;
+    background: #C28321;
     clip-path: circle(150px at 80% 10%);
     transition: 0.5s ease-in-out;
 }
@@ -148,20 +148,20 @@
 }
 
 .container .card .contentBx .size span:hover{
-    background: #9bdc28;
+    background: #C28321;
 }
 
 .container .card .contentBx .color span{
     width: 20px;
     height: 20px;
-    background: #ff0;
+    background: #C28321;
     border-radius: 50%;
     margin: 0 5px;
     cursor: pointer;
 }
 
 .container .card .contentBx .color span:nth-child(2){
-    background: #9bdc28;
+    background: #C28321;
 }
 
 .container .card .contentBx .color span:nth-child(3){

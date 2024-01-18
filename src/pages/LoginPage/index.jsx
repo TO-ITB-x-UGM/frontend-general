@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react";
 import Background from "../../components/AnimatedBackground";
 import Buttons from "../../components/NextButton";
 import { Link, useHistory } from "react-router-dom";
+// import * as Toast from "@radix-ui/react-toast";
 // import {
 //   loginWithPassword,
 //   setAccessToken,
@@ -14,10 +15,13 @@ import { setAccessToken, setUserId } from "../../utils/auth";
 import Swal from "sweetalert2";
 import { AiFillEye, AiFillEyeInvisible, AiOutlineSearch } from "react-icons/ai";
 import axios from "axios";
+import toast from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 const Login = () => {
   let history = useHistory();
   const [email, setEmail] = useState("");
+  const [open, setOpen] = useState(false);
   const [password, setPass] = useState("");
   const [showPassword, setShowPassword] = useState("password");
   const [icon, setIcon] = useState(<AiFillEyeInvisible></AiFillEyeInvisible>);
@@ -50,19 +54,35 @@ const Login = () => {
   //     this.signIn = React.createRef();
   //     this.container = React.createRef();
   const LoginPass = (e) => {
+    // toast.success("Kamu Salah")
     e.preventDefault();
     try {
-      Auth.loginWithPassword(email, password).then((result) => {
+    Auth.loginWithPassword(email, password).then((result) => {
+      if (result.data.ok) {
         setAccessToken(result.data.data.access_token);
         setUserId(result.data.data);
         history.push("/dashboard");
-      });
+      } else {
+        toast.error("kamu salah");
+      }
+    });
     } catch (error) {
+      toast.error("Kamu Salah");
       console.log(error);
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-      });
+    // setOpen(true);
+    // <Toast.Provider swipeDirection="up">
+    //   <Toast.Root
+    //     className="ToastRoot"
+    //     open={open}
+    //     onOpenChange={setOpen}
+    //     duration={3000}
+    //   >
+    //     <Toast.Title className="ToastTitle">Login Error</Toast.Title>
+    //     <Toast.Description asChild className="ToastDescription">
+    //       Kamu salah
+    //     </Toast.Description>
+    //   </Toast.Root>
+    // </Toast.Provider>;
     }
   };
 
@@ -85,6 +105,7 @@ const Login = () => {
 
   return (
     <>
+      <Toaster />
       <Background />
       <div className="login">
         <div class="container" id="containerLogin">
