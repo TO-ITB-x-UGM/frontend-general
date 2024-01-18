@@ -23,6 +23,7 @@ jobs:
         ssh -o StrictHostKeyChecking=no ${{ vars.USER_VPS }}@${{ vars.IP_VPS }} << 'EOF'
           cd ${{ vars.DIR }}
           git pull origin master
+          pm2 -v
           pm2 delete itbxugm
           pm2 start npm --name "itbxugm" -- start
           echo 'Deployment Completed.'
